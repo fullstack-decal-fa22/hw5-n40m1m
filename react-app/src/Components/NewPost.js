@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { useState, useEffect } from "react";
 
 // {update}
 const NewPost = ({getData}) => {
@@ -15,9 +16,10 @@ const NewPost = ({getData}) => {
     })
 
     axios
-    .post('http://localhost:3002/posts', {id: id, title: title,body: body })
-    .then((response) => console.log(response))
+    .post("http://localhost:3002/post", {id, title, body })
+    .then(getData)
     .catch((error) => console.log(error));
+
   }
 
   return <div>
